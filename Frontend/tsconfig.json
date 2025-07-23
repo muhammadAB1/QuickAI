@@ -7,8 +7,13 @@
   "compilerOptions":{
     "noEmitOnError": false,
     "skipLibCheck": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "strict": false
-  }
+    "allowUnreachableCode": true,
+    "allowUnusedLabels": true,
+  },
 }
