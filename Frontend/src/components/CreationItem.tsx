@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Markdown from 'react-markdown'
+import { dummyPublishedCreationData } from '../assets/assets'
 
-const CreationItem = ({ item }) => {
+const CreationItem = ({ item}) => {
 
     const [expanded, setExpanded] = useState(false)
 
