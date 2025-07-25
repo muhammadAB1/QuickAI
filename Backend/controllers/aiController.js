@@ -4,7 +4,7 @@ import { clerkClient } from '@clerk/express';
 import axios from 'axios'
 import { getObject, putObject } from '../configs/awsS3.js';
 import cloudinary from 'cloudinary'
-import fs from 'fs'
+import fsPromises from 'fs/promises';
 import pdf from 'pdf-parse/lib/pdf-parse.js'
 
 const AI = new OpenAI({
@@ -193,17 +193,14 @@ export const removeImageBackground = async (req, res) => {
             })
         }
 
-        const secure_url = await cloudinary.uploader.upload(image.path, {
+        const { secure_url } = await cloudinary.v2.uploader.upload(image.path, {
             transformation: [
                 {
                     effect: 'background_removal',
-                    background_removal: 'remove_the_background'
                 }
             ]
         })
-        console.log(secure_url)
-
-        fs.unlink(image.path);
+        await fsPromises.unlink(image.path);
 
         await sql`INSERT into creations (user_id, prompt, content, type)
         values (${userId}, 'Remove background from image', ${secure_url}, 'image')`
@@ -236,9 +233,8 @@ export const removeImageObject = async (req, res) => {
             })
         }
 
-        const { public_id } = await cloudinary.uploader.upload(image.path)
+        const { public_id } = await cloudinary.v2.uploader.upload(image.path)
 
-        fs.unlink(image.path);
 
         const imageUrl = cloudinary.url(public_id, {
             transformation: [{
@@ -247,6 +243,8 @@ export const removeImageObject = async (req, res) => {
             resource_type: 'image'
         }
         )
+
+        await fsPromises.unlink(image.path);
 
         await sql`INSERT into creations (user_id, prompt, content, type)
         values (${userId}, ${`removed ${object} from image`}, ${imageUrl}, 'image')`

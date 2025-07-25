@@ -18,7 +18,7 @@ const RemoveObject = () => {
     try {
       setLoading(true)
 
-      if (object.split('').length > 1) {
+      if (object.split(' ').length > 1) {
         return toast('Please enter only one object name')
       }
 

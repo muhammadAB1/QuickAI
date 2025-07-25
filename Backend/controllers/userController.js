@@ -1,3 +1,4 @@
+import { getObject } from "../configs/awsS3.js";
 import sql from "../configs/db.js";
 
 
@@ -15,8 +16,10 @@ export const getUserCreation = async (req, res) => {
 
 export const getPublishedCreations = async (req, res) => {
     try {
-
         const creations = await sql`SELECT * FROM creations WHERE publish = true ORDER BY created_at DESC`;
+        for (let index = 0; index < creations.length; index++) {
+            creations[index].content = await getObject(`quickAI/${creations[index].content}`);
+        }
         res.json({ success: true, creations });
 
     } catch (error) {
