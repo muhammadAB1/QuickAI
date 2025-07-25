@@ -8,9 +8,10 @@ export const getUserCreation = async (req, res) => {
 
         const creations = await sql`SELECT * FROM creations WHERE user_id = ${userId} ORDER BY created_at DESC`;
         for (let index = 0; index < creations.length; index++) {
-            creations[index].content = await getObject(`quickAI/${creations[index].content}`);
+            if (creations[index].prompt.split(' ')[0] == 'Generate' && creations[index].type == 'image')
+                creations[index].content = await getObject(`quickAI/${creations[index].content}`);
         }
-
+        console.log(creations[0].type)
         res.json({ success: true, creations });
 
     } catch (error) {
