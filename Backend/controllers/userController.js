@@ -7,6 +7,10 @@ export const getUserCreation = async (req, res) => {
         const { userId } = req.auth();
 
         const creations = await sql`SELECT * FROM creations WHERE user_id = ${userId} ORDER BY created_at DESC`;
+        for (let index = 0; index < creations.length; index++) {
+            creations[index].content = await getObject(`quickAI/${creations[index].content}`);
+        }
+
         res.json({ success: true, creations });
 
     } catch (error) {
