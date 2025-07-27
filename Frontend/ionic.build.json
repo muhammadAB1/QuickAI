@@ -1,0 +1,9 @@
+{
+  "name": "My App Build",
+  "integrations": {
+    "capacitor": {}
+  },
+  "hooks": {
+    "build": "cd frontend && npm install && npm run build"
+  }
+}
