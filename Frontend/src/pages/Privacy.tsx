@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
 
                 <div className="border-muted/40 bg-muted/10 mb-8">
                     <p>
-                        Welcome to 1AI ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI chat service and website.
+                        Welcome to QuickAI ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI chat service and website.
                     </p>
                     <p>
                         By using our service, you consent to the data practices described in this policy. If you do not agree with this policy, please do not use our service.
@@ -184,8 +184,8 @@ export default function PrivacyPolicy() {
                             If you have any questions about this Privacy Policy or our data practices, please contact us at:
                         </p>
                         <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
-                            <p><strong>Email:</strong> privacy@1ai.co</p>
-                            <p><strong>Address:</strong> Noida, Uttar Pradesh, India</p>
+                            <p><strong>Email:</strong> abrarjpj7@gmail.com</p>
+                            <p><strong>Address:</strong>Soldier Bazaar Karachi</p>
                             <p><strong>Response Time:</strong> We aim to respond within 5 business days</p>
                         </div>
                 </div>
