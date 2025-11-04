@@ -29,7 +29,13 @@ const Hero = () => {
             </div>
 
             <div className='flex items-center gap-4 mt-8 mx-auto text-gray-600'>
-                <img src={assets.user_group} alt="" className='h-8' /> Trusted by 10k+ people
+                <img src={assets.user_group} alt="" className='h-8' />
+                Trusted by 10k+ people
+            </div>
+            <div className='items-center flex justify-center mt-2 gap-4'>
+                <a href='/terms' className='cursor-pointer underline text-blue-600'>Terms</a>
+                <a href='privacy-policy' className='cursor-pointer underline text-blue-600'>Privacy</a>
+                <a href='refund-policy' className='cursor-pointer underline text-blue-600'>Refund Policy</a>
             </div>
 
         </div>

@@ -10,6 +10,9 @@ import RemoveObject from './pages/RemoveObject'
 import ReviewResume from './pages/ReviewResume'
 import Community from './pages/Community'
 import { Toaster } from 'react-hot-toast'
+import TermsAndConditions from './pages/Terms'
+import PrivacyPolicy from './pages/Privacy'
+import RefundPolicy from './pages/Refund'
 
 const App = () => {
 
@@ -28,6 +31,10 @@ const App = () => {
           <Route path='review-resume' element={<ReviewResume />} />
           <Route path='community' element={<Community />} />
         </Route>
+        <Route path='/terms' element={<TermsAndConditions />} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+        <Route path='/refund-policy' element={<RefundPolicy />} />
+        
       </Routes>
     </div>
   )
